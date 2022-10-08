@@ -32,11 +32,11 @@ export default function TextForm(props) {
     const [text,setText]=useState('');
     return (
         <>
-            <div className="container my-2">
+            <div className="container my-2" style={{color: props.mode==='dark'?'white':'black'}}>
                 <div className="mb-3">
                     {/* <h2>{props.heading} - {text}</h2> */}
                     <h1>{props.heading}</h1>
-                    <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8" placeholder="Enter text here"></textarea>
+                    <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#3c4349':'white',color:props.mode==='dark'?'white':'black'}} id="myBox" rows="8" placeholder="Enter text here"></textarea>
                     <button className="btn btn-sm btn-success mt-1" onClick={copyText}>Copy to Clipboard</button>
                 </div>
                 <button className="btn btn-primary mx-1" onClick={handleUppercaseClick}>Convert to Uppercase</button>
@@ -44,7 +44,7 @@ export default function TextForm(props) {
                 <button className="btn btn-info mx-1" onClick={handleClearText}>Clear Text</button>
             </div>
 
-            <div className="container my-3">
+            <div className="container my-3" style={{backgroundColor: props.mode==='dark'?'#3c4349':'white',color:props.mode==='dark'?'white':'black'}}>
                 <h2>Your Text Summary</h2>
                 <p>{text.split(" ")[text.split(" ").length-1]===""?text.split(" ").length-1:text.split(" ").length} words and {text.length} characters</p>
                 <p>{text===""?0:0.008*text.split(" ").length} Minutes read</p>
