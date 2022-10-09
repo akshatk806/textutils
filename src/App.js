@@ -4,6 +4,7 @@ import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 import About from './components/About';
 import React, { useState } from 'react';         // imr -> shortcut
+import Contact from './components/Contact';
 
 import {
   BrowserRouter as Router,
@@ -47,6 +48,7 @@ function App() {
           <Routes>
             <Route path="/" element={<TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />}/>
             <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>
       </Router>
