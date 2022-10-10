@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default function Contact() {
+    document.title='TextUtils | Contact';
     return (
         <div className='my-3 card'>
             <div class="card-header">

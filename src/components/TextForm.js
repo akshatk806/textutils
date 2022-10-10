@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 
 export default function TextForm(props) {
+    document.title='TextUtils | Home';
     
     const handleUppercaseClick=()=>{
         // console.log("Uppercase button clicked"+text);
@@ -43,15 +44,15 @@ export default function TextForm(props) {
                     <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#3c4349':'white',color:props.mode==='dark'?'white':'black'}} id="myBox" rows="8" placeholder="Enter text here"></textarea>
                     <button className="btn btn-sm btn-success mt-1" onClick={copyText}>Copy to Clipboard</button>
                 </div>
-                <button className="btn btn-primary mx-1" onClick={handleUppercaseClick}>Convert to Uppercase</button>
-                <button className="btn btn-danger mx-1" onClick={handleLowercaseClick}>Convert to Lowercase</button>
-                <button className="btn btn-info mx-1" onClick={handleClearText}>Clear Text</button>
+                <button className="btn btn-primary mx-1 my-1" onClick={handleUppercaseClick}>Convert to Uppercase</button>
+                <button className="btn btn-danger mx-1 my-1" onClick={handleLowercaseClick}>Convert to Lowercase</button>
+                <button className="btn btn-info mx-1 my-1" onClick={handleClearText}>Clear Text</button>
             </div>
 
             <div className="container my-3" style={{backgroundColor: props.mode==='dark'?'#3c4349':'white',color:props.mode==='dark'?'white':'black'}}>
                 <h2>Your Text Summary</h2>
-                <p>{text.split(" ")[text.split(" ").length-1]===""?text.split(" ").length-1:text.split(" ").length} words and {text.length} characters</p>
-                <p>{text===""?0:0.008*text.split(" ").length} Minutes read</p>
+                <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+                <p>{0.008*text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes read</p>
 
                 <h2>Preview</h2>
                 <p>{text}</p>
